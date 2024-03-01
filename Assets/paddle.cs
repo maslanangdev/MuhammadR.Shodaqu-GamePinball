@@ -6,7 +6,7 @@ public class paddle : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    
+    public KeyCode key_trigger;
 
     void Start()
     {
@@ -17,9 +17,10 @@ public class paddle : MonoBehaviour
     void Update()
     {   
         JointSpring jointSpring = GetComponent<HingeJoint>().spring;
-        if (Input.GetKeyDown(KeyCode.Z)){
+        if (Input.GetKeyDown(key_trigger)){
             
             jointSpring.spring = 1000;
+            Debug.Log("trigger!");
         }
         else {
             jointSpring.spring = 0;

@@ -10,12 +10,15 @@ public class point_lewater : MonoBehaviour
     private static int score = 0;
 
     private SphereCollider sphereCollider;
+    private AudioSource audioSource;
     // public Material material;
     Renderer rn;
 
     void Start()
     {
         sphereCollider = GetComponent<SphereCollider>();
+        audioSource = GetComponent<AudioSource>();
+
         // material = GetComponent<Material>();
         rn = GetComponent<Renderer>();
         
@@ -27,16 +30,20 @@ public class point_lewater : MonoBehaviour
         
     }
 
+
+
     private void OnTriggerEnter(Collider other) {
         score = score + 1;
         Debug.Log(score);
         rn.material.color = Color.red;
+        audioSource.Play();
     }
 
     private void OnCollisionEnter(Collision other) {
         score = score + 1;
         Debug.Log(score);
         rn.material.color = Color.red;
+        audioSource.Play();
     }
 
     private void OnCollisionExit(Collision other) {
