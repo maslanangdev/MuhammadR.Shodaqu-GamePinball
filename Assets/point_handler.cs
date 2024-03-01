@@ -13,6 +13,7 @@ public class point_lewater : MonoBehaviour
     private SphereCollider sphereCollider;
     private AudioSource audioSource;
 
+
     public TextMeshProUGUI test_score;
 
     // public Material material;
@@ -22,6 +23,7 @@ public class point_lewater : MonoBehaviour
     {
         sphereCollider = GetComponent<SphereCollider>();
         audioSource = GetComponent<AudioSource>();
+        Debug.Log(score);
         test_score.SetText("Score : " + score.ToString());
         // material = GetComponent<Material>();
         rn = GetComponent<Renderer>();
@@ -31,26 +33,35 @@ public class point_lewater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        test_score.SetText("Score : ");
+
     }
 
 
 
     private void OnTriggerEnter(Collider other) {
-        score = score + 38;
-        Debug.Log(score);
-        rn.material.color = Color.red;
-        audioSource.Play();
-        test_score.SetText("Score : " + score.ToString());
+
+        Debug.Log(other.name);
+        if (other.name == "ballz"){
+            score = score + 38;
+            Debug.Log(score);
+            rn.material.color = Color.red;
+            audioSource.Play();
+            test_score.SetText("Score : " + score.ToString());
+        }
+        
+
 
     }
 
     private void OnCollisionEnter(Collision other) {
-        score = score + 29;
-        Debug.Log(score);
-        rn.material.color = Color.red;
-        audioSource.Play();
-        test_score.SetText("Score : " + score.ToString());
+        if (other.body.name == "ballz"){
+            score = score + 29;
+            Debug.Log(score);
+            rn.material.color = Color.red;
+            audioSource.Play();
+            test_score.SetText("Score : " + score.ToString());
+        }
+        
 
     }
 
