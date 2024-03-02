@@ -33,7 +33,7 @@ public class point_lewater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        test_score.SetText("Score : " + score.ToString());
     }
 
 
@@ -43,10 +43,10 @@ public class point_lewater : MonoBehaviour
         Debug.Log(other.name);
         if (other.name == "ballz"){
             score = score + 38;
-            Debug.Log(score);
-            rn.material.color = Color.red;
-            audioSource.Play();
-            test_score.SetText("Score : " + score.ToString());
+        Debug.Log(score);
+        rn.material.color = Color.red;
+        audioSource.Play();
+
         }
         
 
@@ -59,7 +59,7 @@ public class point_lewater : MonoBehaviour
             Debug.Log(score);
             rn.material.color = Color.red;
             audioSource.Play();
-            test_score.SetText("Score : " + score.ToString());
+
         }
         
 
